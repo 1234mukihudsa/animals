@@ -1,0 +1,36 @@
+body{
+    font-family: 'Source Code Pro', monospace;
+    background: crimson;
+
+}
+.header_div {
+    background: darkcyan;
+    color: hotpink;
+
+}
+.header_div p{
+    font-family: 'Vujahday Script', cursive;
+    color: khaki;
+    letter-spacing: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.main_div button{
+    font-family: 'Island Moments', cursive;
+    margin-top: 30px;
+    width:1300px;
+    font-weight: bolder;
+    letter-spacing: 3px;
+    background-color: lightseagreen;
+}
+.copy_right_footer{
+    position: fixed;
+    color: magenta;
+    bottom: 0;
+    width: 100%;
+    font-size: 18px;
+    background: turquoise;
+    line-height: 3;
+    text-align: center;
+    text-shadow: 5px 5px 6px maro;
+}
