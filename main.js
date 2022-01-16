@@ -1,11 +1,40 @@
 function startClassification(){
     navigator.mediaDevices.getUserMedia({audio:true});
-    classifier=ml5.js.Soundclassifier('https://teachablemachine.withgoogle.com/models/V8XTaP3FF/model.json',modelReady);
+    classifier=ml5.soundClassifier('https://teachablemachine.withgoogle.com/models/V8XTaP3FF/model.json',modelReady);
 
 }
 function modelReady(){
-    classifer.classify(gotResult);
+    classifier.classify(gotResult);
 }
 function gotResult(error,results){
-    console.log("gotResult");
+    if(error){
+    console.error(error);
+    }
+    else{
+        console.log(results);
+        random_number_r= Math.floor(Math.random()*255)+1;
+        random_number_b= Math.floor(Math.random()*255)+1;
+        random_number_g= Math.floor(Math.random()*255)+1;
+        document.getElementById("result_label").innerHTML ='I can hear:'+ results[0].label;
+        document.getElementById("result_confidence").innerHTML ='Accuracy:'+ (results[0].confidence*100).toFixed(9) +" %";
+        document.getElementById("result_label").style.color = "rgb("+random_number_r+","+ random_number_r+","+random_number_b+")";
+        document.getElementById("result_confidence").style.color = "rgb("+random_number_r+","+ random_number_r+","+random_number_b+")";
+
+        img = document.getElementById('img');
+        
+        if( results[0].label == "dog"){
+            img.src = 'd.png';
+           
+        }
+        else if( results[0].label == "Cat"){
+            img.src = 'cat.png';
+           
+        }
+        else if( results[0].label == "Bird"){
+            img.src = 'download.png';
+            
+        }
+       
+        
+    }
 }
